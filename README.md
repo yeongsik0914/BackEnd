@@ -8,4 +8,8 @@
 
 ** 글자 강조 테스트 입니다. **
 
+I just love **bold text**.
 
+I just love __bold text__.
+
+Love**is**bold
