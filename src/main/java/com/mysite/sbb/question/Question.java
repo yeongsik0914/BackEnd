@@ -2,6 +2,7 @@ package com.mysite.sbb.question;
 
 import java.time.LocalDateTime;	//자신의 시스템의 로컬의 시간 설정
 import java.util.List;
+import java.util.Set;
 
 import com.mysite.sbb.answer.Answer;
 import com.mysite.sbb.user.SiteUser;
@@ -13,6 +14,7 @@ import jakarta.persistence.Entity;	//JPA 에서 적용된 어노테이션
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -32,7 +34,8 @@ public class Question {
 	@Column(length =200)	//200자까지
 	private String subject;
 	
-	@Column(columnDefinition = "TEXT")
+	//@Column(columnDefinition = "TEXT")
+	@Column(length = 4000)
 	private String content;
 
 	private LocalDateTime createDate;	//create_date :
@@ -53,4 +56,7 @@ public class Question {
 	private SiteUser author;
 	
 	private LocalDateTime modifyDate;
+	
+	@ManyToMany
+	Set<SiteUser> voter;
 }
